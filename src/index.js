@@ -1,17 +1,54 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
+import Post from './components/Post';
 import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import { createRoot } from 'react-dom/client';
+import App from './App.js';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = createRoot(document.getElementById('root'));
+const Layout =(props)=>{
+    return (
+    <div style={{backgroundColor:"yellowgreen"}}>
+        {props.children}
+    </div>
+    )
+}
+const Name = () => {
+    const developers = ['Ali', 'Muse', 'Muno'];
+
+    return (
+        <ul>
+            {developers.map((developer, index) => (
+                <Developer
+                    developer={developer}
+                    key={index}
+                />
+            ))}
+        </ul>
+    );
+};
+
+const Developer = (props) => {
+    const handleClick = () => {
+    alert(`welcome ${props.developer}!`);
+    };
+
+    return (
+        <li onClick={handleClick}>
+        {props.developer}
+        </li>   
+    );
+};
+
+export default Name;
+
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+    <>
+        <Layout>
+        <App/>
+        <Post title="hello boss" desc="this best 1"/>
+        <Post title="hello boss 1" desc="this best 2" />
+        <Post title="hello boss 2" desc="this best 3"/>
+        </Layout>
+         <Name/>
+         </>
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();

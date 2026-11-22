@@ -1,25 +1,14 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+function App(){
+    const sum="this is Sum "
+    return( 
+    <>
+    
+        <h1 className="this heading" style={{fontSize:'10px'}}>Hello From App News</h1>
+        <h2>This Is H2</h2>
+        <span>{sum}</span>
+        <span>{10+10}</span> 
+    </>
+    )
 }
 
 export default App;
